@@ -1,5 +1,6 @@
 import { Link, Stack } from "@mui/material";
 import { logo } from "../utils/constants";
+import Searchbar from "./Searchbar";
 
 const Navbar = () => {
   /**
@@ -23,6 +24,7 @@ const Navbar = () => {
       <Link href="/" sx={{ display: "flex", alignItems: "center" }}>
         <img src={logo} alt="logo" height={45}></img>
       </Link>
+      <Searchbar />
     </Stack>
   );
 };
