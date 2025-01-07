@@ -8,5 +8,5 @@ export { default as SearchBar } from "./Searchbar";
 export { default as SearchFeed } from "./SearchFeed";
 export { default as Sidebar } from "./Sidebar";
 export { default as VideoCard } from "./VideoCard";
-export { default as VideoDetailPage } from "./VideoDetailPage";
+export { default as VideoDetailPage } from "./VideoDetail";
 export { default as Videos } from "./Videos";

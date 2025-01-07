@@ -1,10 +1,21 @@
 import { CheckCircle } from "@mui/icons-material";
 import { Box, CardContent, CardMedia, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import { Video } from "../types/Video";
+
+import { ChannelPage } from "../types/ChannelPage";
 import { demoProfilePicture } from "../utils/constants";
 
-const ChannelCard = ({ channelDetail }: { channelDetail: Video }) => {
+const ChannelCard = ({
+  channelDetail,
+  marginTop,
+}: {
+  channelDetail: ChannelPage | undefined;
+  marginTop?: string; // Optional prop
+}) => {
+  if (!channelDetail) return null;
+
+  console.log("Channel Card - Channel Details: ", channelDetail);
+
   return (
     <Box
       sx={{
@@ -16,6 +27,7 @@ const ChannelCard = ({ channelDetail }: { channelDetail: Video }) => {
         width: { xs: "356px", md: "320px" },
         height: "326px",
         margin: "auto",
+        marginTop,
       }}
     >
       <Link to={`/channel/${channelDetail?.id?.channelId}`}>
@@ -42,7 +54,7 @@ const ChannelCard = ({ channelDetail }: { channelDetail: Video }) => {
             }}
           />
           <Typography variant="h6">
-            {channelDetail?.snippet?.channelTitle}
+            {channelDetail?.snippet?.title}
             <CheckCircle sx={{ fontSize: 14, color: "gray", ml: "5px" }} />
             {channelDetail?.statistics?.subscriberCount && (
               <Typography>

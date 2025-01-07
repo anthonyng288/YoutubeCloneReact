@@ -5,6 +5,7 @@ import type { Video } from "./";
 import { ChannelCard, VideoCard } from "./";
 
 const Videos = ({ videos }: { videos: Video[] }) => {
+  console.log("Videos Videos: ", videos);
   return (
     <Stack
       direction="row"
