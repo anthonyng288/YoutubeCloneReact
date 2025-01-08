@@ -9,9 +9,9 @@ const Searchbar = () => {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    navigate(`/search/${encodeURI(searchTerm)}`);
+    navigate(`/search/${searchTerm}`);
 
-    setSearchTerm(" ");
+    setSearchTerm("");
   };
 
   return (

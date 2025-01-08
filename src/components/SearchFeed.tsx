@@ -10,14 +10,12 @@ const SearchFeed = () => {
 
   useEffect(() => {
     if (searchTerm) {
-      const encodedSearchTerm = encodeURI(searchTerm);
+      console.log("SearchTerm: ", searchTerm);
       try {
-        fetchFromAPI(`search?part=snippet&q=${encodedSearchTerm}`).then(
-          (data) => {
-            //We use .then for promises
-            setVideos(data.items);
-          }
-        );
+        fetchFromAPI(`search?part=snippet&q=${searchTerm}`).then((data) => {
+          //We use .then for promises
+          setVideos(data.items);
+        });
       } catch (error) {
         console.log("The Fetch Caused an error");
         console.log("Error: ", error);

@@ -13,7 +13,6 @@ const ChannelCard = ({
   marginTop?: string; // Optional prop
 }) => {
   if (!channelDetail) return "Loading...";
-  console.log("Channel Detail: ", channelDetail);
   return (
     <Box
       sx={{

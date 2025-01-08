@@ -13,7 +13,6 @@ const Videos = ({
   direction?: "row" | "row-reverse" | "column" | "column-reverse";
 }) => {
   if (!videos?.length) return "Loading...";
-  console.log("Videos - Videos: ", videos);
   return (
     <Stack
       direction={direction || "row"}
