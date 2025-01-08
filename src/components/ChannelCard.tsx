@@ -12,10 +12,8 @@ const ChannelCard = ({
   channelDetail: ChannelPage | undefined;
   marginTop?: string; // Optional prop
 }) => {
-  if (!channelDetail) return null;
-
-  console.log("Channel Card - Channel Details: ", channelDetail);
-
+  if (!channelDetail) return "Loading...";
+  console.log("Channel Detail: ", channelDetail);
   return (
     <Box
       sx={{

@@ -11,7 +11,6 @@ const ChannelDetail = () => {
   const [videos, setVideos] = useState([]);
   const { id } = useParams();
 
-  console.log("Channel Details: ", channelDetail);
   // useEffect happens when id parameter changes
   useEffect(() => {
     fetchFromAPI(`channels?part="snippet&id=${id}`).then((data) =>
@@ -21,8 +20,6 @@ const ChannelDetail = () => {
     fetchFromAPI(`search?channelId=${id}&part=snippet&order=date`).then(
       (data) => setVideos(data?.items)
     );
-
-    console.log("Videos: ", videos);
   }, [id]);
 
   return (

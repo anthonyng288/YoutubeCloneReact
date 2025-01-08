@@ -1,25 +1,39 @@
 //To do keep types in zod or seperate file
 
 import { Box, Stack } from "@mui/material";
+import type { ChannelPage } from "../types/ChannelPage";
 import type { Video } from "./";
 import { ChannelCard, VideoCard } from "./";
 
-const Videos = ({ videos }: { videos: Video[] }) => {
-  console.log("Videos Videos: ", videos);
+const Videos = ({
+  videos,
+  direction,
+}: {
+  videos: Video[];
+  direction?: "row" | "row-reverse" | "column" | "column-reverse";
+}) => {
+  if (!videos?.length) return "Loading...";
+  console.log("Videos - Videos: ", videos);
   return (
     <Stack
-      direction="row"
+      direction={direction || "row"}
       flexWrap="wrap"
       justifyContent="start"
-      alignItems="start"
-      gap={3}
+      alignItems="stretch"
+      gap={2}
     >
-      {videos.map((item, index) => (
-        <Box key={index}>
-          {item.id.videoId && <VideoCard video={item} />}
-          {item.id.channelId && <ChannelCard channelDetail={item} />}
-        </Box>
-      ))}
+      {videos
+        .filter((item) => {
+          return item.id.kind != "youtube#playlist"; //No use for playlists, we filter then map
+        })
+        .map((item, index) => (
+          <Box key={index} className={`${item.snippet.title} - ${index}`}>
+            {item.id.videoId && <VideoCard video={item} />}
+            {item.id.channelId && (
+              <ChannelCard channelDetail={item as unknown as ChannelPage} /> //Jank AF
+            )}
+          </Box>
+        ))}
     </Stack>
   );
 };

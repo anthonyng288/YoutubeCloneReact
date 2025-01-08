@@ -1,6 +1,9 @@
 export type ChannelPage = {
   kind: string;
-  id: string;
+  id: {
+    channelId: string;
+    kind: string;
+  };
   snippet: {
     title: string;
     description: string;

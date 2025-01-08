@@ -10,7 +10,6 @@ const Searchbar = () => {
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     navigate(`/search/${encodeURI(searchTerm)}`);
-    console.log("Search Term: ", searchTerm);
 
     setSearchTerm(" ");
   };

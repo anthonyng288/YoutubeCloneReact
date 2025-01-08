@@ -2,7 +2,7 @@ import { VideoDetailType } from "../types/VideoDetailType";
 
 export const defaultVideoDetail: VideoDetailType = {
   kind: "",
-  id: "",
+  id: "Test",
   snippet: {
     publishedAt: "",
     channelId: "",

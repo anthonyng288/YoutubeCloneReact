@@ -11,7 +11,6 @@ const SearchFeed = () => {
   useEffect(() => {
     if (searchTerm) {
       const encodedSearchTerm = encodeURI(searchTerm);
-      console.log("Search Feed Search term: ", encodedSearchTerm);
       try {
         fetchFromAPI(`search?part=snippet&q=${encodedSearchTerm}`).then(
           (data) => {

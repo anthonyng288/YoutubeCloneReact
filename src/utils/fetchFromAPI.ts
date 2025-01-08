@@ -16,8 +16,6 @@ const options = {
 export const fetchFromAPI = async (url: string) => {
   try {
     const { data } = await axios.get(`${BASE_URL}/${url}`, options);
-    console.log("Fetch URL: ", url);
-    console.log("Data: ", data);
     return data;
   } catch (error) {
     console.error("an error occurred when calling the API: ", error);
